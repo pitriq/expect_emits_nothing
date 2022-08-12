@@ -7,7 +7,7 @@ Future<void> expectEmitsNothing<T>({
   final emitted = <T>[];
   final subscription = stream.listen((status) => emitted.add(status));
   await act.call();
-  subscription.cancel();
   await Future<void>.delayed(Duration.zero);
   expect(emitted, []);
+  subscription.cancel();
 }
